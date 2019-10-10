@@ -11,7 +11,19 @@ namespace MaetsStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if ((string)Session["uname"] != null)
+                {
+                    HelloText.InnerText = "Hello " + (string)Session["uname"] + "!";
 
+                }
+
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
         }
     }
 }

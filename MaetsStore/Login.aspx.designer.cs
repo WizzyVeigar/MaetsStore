@@ -10,15 +10,24 @@
 namespace MaetsStore {
     
     
-    public partial class _Default {
+    public partial class Login {
         
         /// <summary>
-        /// HelloText control.
+        /// unameId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HelloText;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText unameId;
+        
+        /// <summary>
+        /// pswId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword pswId;
     }
 }
