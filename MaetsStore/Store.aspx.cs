@@ -17,11 +17,12 @@ namespace MaetsStore
         Logic logic = new Logic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShowStaffPictures();
+            ShowImgs();
             //if (!IsPostBack)
             //{
             //    if ((string)Session["uname"] != null)
-            //    {
+            //    { if(lit == true)
+            //         Debug.WriteLine("👌");
 
             //    }
 
@@ -35,20 +36,19 @@ namespace MaetsStore
         public List<Game> GetGames()
         {
             ResizeImages();
-            //this works!
             List<Game> games = new List<Game>();
             DataTable dt = logic.GetDb();
             string rowName;
-            int rowAmount;
+            int rowAmont;
             float rowPrice;
             string rowImage = "";
             string[] gameImages = logic.GetGameImages(dt);
 
-            foreach (DataRow row in dt.Rows)
+            foreach (DataRow rows in dt.Rows)
             {
-                rowName = row[1].ToString().ToLower();
-                rowAmount = Convert.ToInt32(row[2]);
-                rowPrice = float.Parse(row[3].ToString());
+                rowName = rows[1].ToString().ToLower();
+                rowAmont = Convert.ToInt32(rows[2]);
+                rowPrice = float.Parse(rows[3].ToString());
                 foreach (string path in gameImages)
                 {
                     path.ToLower();
@@ -65,7 +65,7 @@ namespace MaetsStore
         }
 
 
-        private void ShowStaffPictures()
+        private void ShowImgs()
         {
             DataTable tb = new DataTable();
             tb.Columns.Add("imgurl");
