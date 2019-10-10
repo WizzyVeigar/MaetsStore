@@ -37,7 +37,7 @@ namespace MaetsStore.Classes
 
         internal string[] GetGameImages(DataTable dt)
         {
-            string path = @"C:\Users\Kenn5073\source\repos\MaetsStore\MaetsStore\Images";
+            string path = @"C:\Users\pete168s\source\repos\ZbcGuideApp\ZbcGuideApp\ZbcGuideApp.Android\Resources\drawable";
             return Directory.GetFiles(path);
             //foreach (DataRow row in dt.Rows)
             //{
