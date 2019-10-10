@@ -11,7 +11,7 @@ namespace MaetsStore.Classes
 {
     public class Sql
     {
-        private readonly string connectionstring = @"Server = RO-SKP-01838; Database=MaetsStore; Integrated Security=true";
+        const string connectionstring = @"Server = ZBC-EMA-23111; Database=MaetsStore; Integrated Security=true";
 
 
         SqlConnection conn;
