@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <asp:content ContentPlaceHolderID="head" runat="server">
+    </asp:content>
     <link rel="stylesheet" href="\Content\Main.css" />
 </head>
 <body>

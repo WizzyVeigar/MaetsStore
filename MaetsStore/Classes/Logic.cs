@@ -8,6 +8,7 @@ using System.Web;
 
 namespace MaetsStore.Classes
 {
+    //TODO Should split my logic classes into multiple pages: Gameslogic, LoginLogic...
     public class Logic
     {
         Sql sql = new Sql();
@@ -37,7 +38,7 @@ namespace MaetsStore.Classes
 
         internal string[] GetGameImages(DataTable dt)
         {
-            string path = @"C:\Users\pete168s\source\repos\ZbcGuideApp\ZbcGuideApp\ZbcGuideApp.Android\Resources\drawable";
+            string path = @"C:\Users\Kenn5073\source\repos\MaetsStore\MaetsStore\Images";
             return Directory.GetFiles(path);
             //foreach (DataRow row in dt.Rows)
             //{

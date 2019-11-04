@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -35,20 +36,19 @@ namespace MaetsStore
 
         public List<Game> GetGames()
         {
-            ResizeImages();
             List<Game> games = new List<Game>();
             DataTable dt = logic.GetDb();
             string rowName;
-            int rowAmont;
+            int rowAmount;
             float rowPrice;
             string rowImage = "";
             string[] gameImages = logic.GetGameImages(dt);
 
-            foreach (DataRow rows in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
-                rowName = rows[1].ToString().ToLower();
-                rowAmont = Convert.ToInt32(rows[2]);
-                rowPrice = float.Parse(rows[3].ToString());
+                rowName = row[1].ToString().ToLower();
+                rowAmount = Convert.ToInt32(row[2]);
+                rowPrice = float.Parse(row[3].ToString());
                 foreach (string path in gameImages)
                 {
                     path.ToLower();
@@ -84,10 +84,24 @@ namespace MaetsStore
             //lVStaffPhotoList.DataBind();
 
         }
-        public void ResizeImages()
-        {
-            string[] filesindirectory = Directory.GetFiles(Server.MapPath("~/Images/"));
-        }
+        //public void ResizeImages(System.Drawing.Image image, out List<System.Drawing.Image> resizedImages)
+        //{
+        //    resizedImages = null;
+        //    const int maxResizedDimension = 200;
+        //    //Resizes the image to suitable size
+        //    Size resizedSize;
+        //    if (image.Width > image.Height)
+        //    {
+        //        resizedSize = new Size(maxResizedDimension, (int)Math.Floor((image.Height / (image.Width * 1.0f)) * maxResizedDimension));
+        //    }
+        //    else
+        //    {
+        //        //If height > width = 200px,200px
+        //        resizedSize = new Size((int)Math.Floor((image.Width / (image.Width * 1.0f)) * maxResizedDimension), maxResizedDimension);
+        //    }
+        //    Bitmap resizedBitMapImage = new Bitmap(image, resizedSize);
+        //    resizedImages.Add((System.Drawing.Image)resizedBitMapImage);
+        //}
     }
 
 }

@@ -31,9 +31,30 @@ input[type=text], input[type=password] {
     text-align:left;
 }
 
-img.catalogImg{
-    width: 100px;
-    height: 75px;
+.fixedTdSize{
+    
+    width: 225px;
+    height: 225px;
+}
+
+.catalogImg{
+    width: 125px;
+    height: 100px;    
+}
+
+.catalogTd {
+    width: 25%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.catalogText {
+    width: 150px;
+    height: auto;
+    text-align:center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* Set a style for all buttons */
