@@ -112,6 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="BasketPage.aspx" />
+    <Content Include="CleanPage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -122,7 +124,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="GameDetails.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -180,10 +181,26 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BasketPage.aspx.cs">
+      <DependentUpon>BasketPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasketPage.aspx.designer.cs">
+      <DependentUpon>BasketPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Encryption.cs" />
     <Compile Include="Classes\Game.cs" />
+    <Compile Include="Classes\GameFactory.cs" />
     <Compile Include="Classes\Logic.cs" />
-    <Compile Include="Classes\Sql.cs" />
+    <Compile Include="Classes\SqlController.cs" />
+    <Compile Include="Classes\UserManager.cs" />
+    <Compile Include="CleanPage.aspx.cs">
+      <DependentUpon>CleanPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CleanPage.aspx.designer.cs">
+      <DependentUpon>CleanPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,13 +214,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GameDetails.aspx.cs">
-      <DependentUpon>GameDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GameDetails.aspx.designer.cs">
-      <DependentUpon>GameDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,6 +240,8 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Classes\SqlCommands.cs" />
+    <Compile Include="Classes\StockValidation.cs" />
     <Compile Include="Store.aspx.cs">
       <DependentUpon>Store.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

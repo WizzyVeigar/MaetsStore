@@ -19,17 +19,19 @@ namespace MaetsStore
         }
         protected void Button_Submit(object sender, System.EventArgs e)
         {
-            //string username = unameId.Value;
-            //string password = pswId.Value;
-            if(logic.Login(unameId.Value, pswId.Value))
+            string username = unameId.Value;
+            string password = pswId.Value;
+            if (logic.Login(unameId.Value, pswId.Value))
             {
+                UserManager.UserName = username;
                 Session["uname"] = unameId.Value;
+                UserManager.SessionID = Session["uname"].ToString();
                 Response.Redirect("Default.aspx");
             }
         }
         protected void Button_CreateUser(object sender, System.EventArgs e)
         {
-            //string test = Request["unameId"]; 
+            string test = Request["unameId"];
             logic.AddUser(unameId.Value, pswId.Value);
         }
     }

@@ -21,11 +21,11 @@ namespace MaetsStore.Classes
             set { gamename = value; }
         }
 
-        private int gameamount;
-        public int GameAmount
+        private int tempgameamount;
+        public int TempGameAmount
         {
-            get { return gameamount; }
-            set { gameamount = value; }
+            get { return tempgameamount; }
+            set { tempgameamount = value; }
         }
 
         private float gameprice;
@@ -49,11 +49,13 @@ namespace MaetsStore.Classes
             set { gameimagepath = value; }
         }
 
-        public Game(string name, int amount, float price, string imagepath)
+        public Game(string name, int amount, float price, string gameDesc, string imagepath, int id)
         {
+            GameId = id;
             GameName = name;
-            GameAmount = amount;
+            TempGameAmount = amount;
             GamePrice = price;
+            GameDesc = gameDesc;
             GameImagePath = imagepath;
         }
     }

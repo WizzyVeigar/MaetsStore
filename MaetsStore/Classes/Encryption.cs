@@ -8,7 +8,7 @@ using System.Text;
 namespace MaetsStore.Classes
 {
     public class Encryption
-    {
+    {//This does exactly what it should do!
         public static string EncryptPass(string unHashedPass)
         {
             var sha256 = SHA256.Create();

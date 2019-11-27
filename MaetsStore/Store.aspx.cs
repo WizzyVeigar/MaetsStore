@@ -15,10 +15,12 @@ namespace MaetsStore
 {
     public partial class Store : System.Web.UI.Page
     {
-        Logic logic = new Logic();
+        GameFactory gameFactory = new GameFactory();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ShowImgs();
+           
             //if (!IsPostBack)
             //{
             //    if ((string)Session["uname"] != null)
@@ -34,36 +36,15 @@ namespace MaetsStore
             //}
         }
 
+        //int id = 0;
+        //THIS METHOD DOES TOO MUCH, maybe make a StoreLogic class?
         public List<Game> GetGames()
         {
-            List<Game> games = new List<Game>();
-            DataTable dt = logic.GetDb();
-            string rowName;
-            int rowAmount;
-            float rowPrice;
-            string rowImage = "";
-            string[] gameImages = logic.GetGameImages(dt);
-
-            foreach (DataRow row in dt.Rows)
-            {
-                rowName = row[1].ToString().ToLower();
-                rowAmount = Convert.ToInt32(row[2]);
-                rowPrice = float.Parse(row[3].ToString());
-                foreach (string path in gameImages)
-                {
-                    path.ToLower();
-                    if (path.Contains(rowName))
-                    {
-                        rowImage = rowName + ".png";
-                        gameImages = gameImages.Where(s => s != path).ToArray();
-                        break;
-                    }
-                }
-                games.Add(new Game(rowName, rowAmount, rowPrice, rowImage));
-            }
-            return games;
+            if (GameFactory.games.Count == 0)
+                return gameFactory.MakeGames();
+            else
+                return GameFactory.games;
         }
-
 
         private void ShowImgs()
         {
@@ -75,11 +56,10 @@ namespace MaetsStore
 
             foreach (string item in filesindirectory)
             {
-                string ImagePath = String.Format("~/Images/{0}", System.IO.Path.GetFileName(item));
+                string ImagePath = String.Format("~/Images/{0}", Path.GetFileName(item));
                 tb.Rows.Add(ImagePath);
-
             }
-            
+
             //lVStaffPhotoList.DataSource = tb;
             //lVStaffPhotoList.DataBind();
 

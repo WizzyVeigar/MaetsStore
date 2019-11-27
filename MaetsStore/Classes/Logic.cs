@@ -11,15 +11,11 @@ namespace MaetsStore.Classes
     //TODO Should split my logic classes into multiple pages: Gameslogic, LoginLogic...
     public class Logic
     {
-        Sql sql = new Sql();
-
-        public Logic()
-        {
-        }
+        SqlCommands sqlCommands = new SqlCommands();
 
         internal bool Login(string username, string password)
         {
-            if(sql.GetUserIdByNameAndPass(username,password))
+            if(sqlCommands.SqlReturnsBoolDoubleString(sqlCommands.GetUserIdByNameAndPass,username,password))
             {
                 System.Diagnostics.Debug.WriteLine("Successful login");
                 return true;
@@ -33,7 +29,7 @@ namespace MaetsStore.Classes
 
         internal void AddUser(string username, string password)
         {
-            sql.AddUser(username, password);
+            sqlCommands.SqlReturnsBoolDoubleString(sqlCommands.AddUser,username, password);
         }
 
         internal string[] GetGameImages(DataTable dt)
@@ -57,7 +53,7 @@ namespace MaetsStore.Classes
 
         public DataTable GetDb()
         {
-            return sql.GetDb();
+            return sqlCommands.GetDb();
         }
     }
 }

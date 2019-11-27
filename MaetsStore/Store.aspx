@@ -13,7 +13,6 @@
                 DataKeyNames="GameId" GroupItemCount="4"
                 ItemType="MaetsStore.Classes.Game" SelectMethod="GetGames">
                 <EmptyItemTemplate>
-                    <td />
                 </EmptyItemTemplate>
                 <GroupTemplate>
                     <tr id="itemPlaceholderContainer" runat="server">
@@ -26,15 +25,17 @@
                         <table runat="server">
                             <tr runat="server">
                                 <td>
-                                    <a href="GameDetails.aspx?GameId=<%#:Item.GameId%>">
+<%--                                    <a href="GameDetails.aspx?GameId=<%#:Item.GameId%>">--%>
+                                    <a href="CleanPage.aspx?GameId=<%#:Item.GameId%>">
                                         <img src='<%#: @"\Images\" + Item.GameImagePath %>' class="catalogImg" />
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="GameDetails.aspx?GameId=<%#:Item.GameId%>" runat="server">
-                                        <div class="catalogText" runat="server">
+<%--                                    <a href="GameDetails.aspx?GameId=<%#:Item.GameId%>" runat="server">--%>
+                                    <a href="CleanPage.aspx?GameId=<%#:Item.GameId%>">
+                                        <div class="catalogText">
                                             <span>
                                                 <b class="catalogText"><%#:Item.GameName%></b>
                                             </span>

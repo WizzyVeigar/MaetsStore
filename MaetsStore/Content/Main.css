@@ -29,6 +29,7 @@ input[type=text], input[type=password] {
 .tdStyle {
     vertical-align:top; 
     text-align:left;
+    padding-left:25px;
 }
 
 .fixedTdSize{
@@ -38,8 +39,8 @@ input[type=text], input[type=password] {
 }
 
 .catalogImg{
-    width: 125px;
-    height: 100px;    
+    width: 200px;
+    height: 175px;    
 }
 
 .catalogTd {
@@ -68,10 +69,19 @@ input[type=text], input[type=password] {
     width: 100%;
 }
 
-    /* Add a hover effect for buttons */
-    button:hover {
-        opacity: 0.8;
-    }
+.totalAmountNumber{
+    vertical-align:central;
+    text-align:right;
+    align-self:flex-end;
+}
+
+.fullLabel {
+    float: right;
+}
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
 
 /* Extra style for the cancel button (red) */
 .cancelbtn {
@@ -103,7 +113,7 @@ span.psw {
     padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
+/* Change styles for span and cancel button on extra small screens 
 @media screen and (max-width: 300px) {
     span.psw {
         display: block;
@@ -113,4 +123,4 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
-}
+}*/
