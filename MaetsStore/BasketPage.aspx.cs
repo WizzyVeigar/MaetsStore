@@ -34,6 +34,7 @@ namespace MaetsStore
 
         protected void BtnFinishPurchase_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Reeeeeeeeeeeee");
         }
     }
 }
