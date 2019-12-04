@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link rel="stylesheet" href="\Content\Main.css" />
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -54,7 +55,10 @@
 <%--                        <li><a runat="server" href="~/">Home</a></li>--%>
 <%--                        <li><a runat="server" href="~/Store.aspx">Shop</a></li>--%>
                         <li><a runat="server" href="BasketPage.aspx">Basket</a></li>
-                        <li><a runat="server" href="Login.aspx">Login</a></li>
+<%--                        <li><a runat="server" href="Login.aspx">Login</a></li>--%>
+<%--                        <li><asp:Button runat="server" onclick="UserLogOut" Text="Logout" CssClass="logoutbutton"/> </li>--%>
+                        <li><asp:Button id="logOutButton" runat="server" onclick="UserLogOut" Text="Logout" CssClass="logoutbutton"/></li>
+<%--                        <li><a runat="server" id="logOutButton" href="Login.aspx">LogOut </a><asp:Button runat="server" onclick="UserLogOut" Text="Logout" CssClass="logoutbutton"/></li>--%>
                     </ul>
                 </div>
             </div>

@@ -7,6 +7,8 @@ using System.Text;
 
 namespace MaetsStore.Classes
 {
+    //Unnecessary use of static methods
+
     public class Encryption
     {//This does exactly what it should do!
         public static string EncryptPass(string unHashedPass)
@@ -20,6 +22,18 @@ namespace MaetsStore.Classes
                 sb.Append(hash[i].ToString("X2"));
             }
             return sb.ToString();
+        }
+
+        public static string EncryptJson(string jsonString)
+        {
+            //Do encryption on jsonString;
+            return jsonString;
+        }
+
+        public static string DecryptJson(string jsonString)
+        {
+            //Do Decryption on jsonString
+            return jsonString;
         }
     }
 }

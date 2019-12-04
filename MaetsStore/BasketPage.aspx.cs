@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MaetsStore.Classes;
+using System.Diagnostics;
 
 namespace MaetsStore
 {
@@ -34,6 +35,26 @@ namespace MaetsStore
 
         protected void BtnFinishPurchase_Click(object sender, EventArgs e)
         {
+            UserManager.SaveLibrary(UserManager.GamesInBasket);
+            Response.Redirect("BasketPage.aspx");
+        }
+
+
+
+        protected void RemoveItem_Click(object sender, EventArgs e)
+        {
+            Button gm = (Button)sender;
+            //Debug.WriteLine("button prints id: " +  gm.Parent.UniqueID + " gm text" + gm.Text);
+            //Debug.WriteLine("Gm text: " + Convert.ToInt32(gm.Text));
+            int pos = 0;
+            for (int i = 0; i < UserManager.GamesInBasket.Count; i++)
+            {
+                if (UserManager.GamesInBasket[i].GameId == Convert.ToInt32(gm.Text))
+                    pos = i;
+            }
+            UserManager.GamesInBasket.RemoveAt(pos);
+
+            Response.Redirect("BasketPage.aspx");
         }
     }
 }

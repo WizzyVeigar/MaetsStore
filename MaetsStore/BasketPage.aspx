@@ -16,11 +16,11 @@
                 <td id="itemPlaceholder" runat="server"></td>
             </tr>
         </GroupTemplate>
-        <ItemTemplate>
+        <ItemTemplate >
             <td class="catalogTd">
                 <%--                        id="groupPlaceholderContainer"--%>
-                <table runat="server">
-                    <tr runat="server">
+                <table runat="server" >
+                    <tr runat="server" id="kappa">
                         <td>
                             <br />
                             <%--                                    <a href="GameDetails.aspx?GameId=<%#:Item.GameId%>">--%>
@@ -43,6 +43,9 @@
                                 <b>Price: </b><%#:String.Format("{0:c}", Item.GamePrice)%>
                             </span>
                             <br />
+                        </td>
+                        <td runat="server" ID="HelloWorld">
+                            <asp:Button runat="server" Text="<%#:Item.GameId%>" OnClick="RemoveItem_Click"></asp:Button>
                         </td>
                     </tr>
                     <tr>

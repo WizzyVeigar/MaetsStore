@@ -124,3 +124,9 @@ span.psw {
         width: 100%;
     }
 }*/
+input.logoutbutton {
+    background-color: #222;
+    border: #101010;
+    color: #9d9d9d;
+    padding-top: 26%;
+}

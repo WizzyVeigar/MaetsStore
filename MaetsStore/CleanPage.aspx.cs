@@ -10,22 +10,23 @@ namespace MaetsStore
 {
     public partial class CleanPage : System.Web.UI.Page
     {
+        int gameId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            gameId = Convert.ToInt32(Request.QueryString["GameId"]);
         }
 
 
         public Game GetProduct()
         {
-            int gameId = Convert.ToInt32(Request.QueryString["GameId"]);
             return GameFactory.games[gameId];
         }
 
         public void AddProductToBasket(object o, EventArgs e)
         {
             StockValidation stockValidater = new StockValidation();
-            int gameId = Convert.ToInt32(Request.QueryString["GameId"]);
+            
             if (stockValidater.IsThereStock(GameFactory.games[gameId]))
             {
                 System.Diagnostics.Debug.WriteLine("There was stock");

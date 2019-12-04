@@ -17,19 +17,28 @@ namespace MaetsStore
         {
 
         }
-        protected void Button_Submit(object sender, System.EventArgs e)
+
+        protected void Button_Submit(object sender, EventArgs e)
         {
             string username = unameId.Value;
             string password = pswId.Value;
+            //Checks userinput if user exists
             if (logic.Login(unameId.Value, pswId.Value))
             {
-                UserManager.UserName = username;
                 Session["uname"] = unameId.Value;
-                UserManager.SessionID = Session["uname"].ToString();
+                UserManager.UserName = username;
+                if (UserManager.CheckIfFileExists(username))
+                {
+                    UserManager.GamesInLibrary = UserManager.LoadLibrary(username);
+                    Debug.WriteLine(UserManager.GamesInLibrary);
+                }
+                //Makes empty file for the users library
+                else
+                    UserManager.CreateEmptyUserFile(username);
                 Response.Redirect("Default.aspx");
             }
         }
-        protected void Button_CreateUser(object sender, System.EventArgs e)
+        protected void Button_CreateUser(object sender, EventArgs e)
         {
             string test = Request["unameId"];
             logic.AddUser(unameId.Value, pswId.Value);
