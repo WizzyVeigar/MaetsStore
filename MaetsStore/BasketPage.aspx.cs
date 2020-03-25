@@ -35,6 +35,7 @@ namespace MaetsStore
 
         protected void BtnFinishPurchase_Click(object sender, EventArgs e)
         {
+            UserManager.GamesInLibrary = UserManager.GamesInBasket;
             UserManager.SaveLibrary(UserManager.GamesInBasket);
             Response.Redirect("BasketPage.aspx");
         }

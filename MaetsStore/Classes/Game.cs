@@ -21,6 +21,7 @@ namespace MaetsStore.Classes
             set { gamename = value; }
         }
 
+        //GAME SHOULD NOT KNOW HOW MUCH THERE IS OF ITSELF
         private int tempgameamount;
         public int TempGameAmount
         {
