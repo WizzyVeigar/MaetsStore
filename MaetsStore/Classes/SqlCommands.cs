@@ -53,7 +53,6 @@ namespace MaetsStore
 
         internal bool GetUserIdByNameAndPass(string username, string password)
         {
-            // this is the value we will return
 
             using (command = new SqlCommand("SELECT UserName, UserPassword, UserGuid FROM MaetsStore_User WHERE UserName=@UserName", sqlController.conn))
             {
@@ -68,7 +67,7 @@ namespace MaetsStore
                     string dbUserGuid = dataReader["UserGuid"].ToString().ToLower();
                     // Hash the UserGuid from the database with the password we want to check
                     // Same way as when we saved it to the database in the first place. (see AddUser() function)
-                    string hashedPassword = Encryption.EncryptPass(password + dbUserGuid).ToString();
+                    string hashedPassword = Encryption.EncryptPass(password + dbUserGuid);
 
                     if (dbPassword == hashedPassword)
                     {
@@ -93,7 +92,7 @@ namespace MaetsStore
             using (command = new SqlCommand(nonQuery, sqlController.conn))
             {
                 command.Parameters.AddWithValue("@UserName", username);
-                command.Parameters.AddWithValue("@UserPassword", Encryption.EncryptPass(password + userGuid).ToString()); // store the hashed value
+                command.Parameters.AddWithValue("@UserPassword", Encryption.EncryptPass(password + userGuid)); // store the hashed value
                 command.Parameters.AddWithValue("@UserGuid", userGuid); // store the Guid
 
 
